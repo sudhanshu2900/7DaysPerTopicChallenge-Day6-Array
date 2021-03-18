@@ -1,0 +1,30 @@
+PROBLEM: N = 6, M = 5
+        A[] = {1, 2, 3, 4, 5, 10}
+        B[] = {2, 3, 1, 0, 5} 
+Output: 4 10
+
+Explanation: 4 and 10 are present in first array, but not in second array.
+
+
+SOLUTION:
+
+vector<long long> findMissing(long long A[], long long B[],  
+                 int N, int M) 
+	{
+	    set<int> s;
+	    vector<long long> ans;
+	    for(int i=0;i<M;i++){
+	        s.insert(B[i]);
+	    }
+	    for(int i=0;i<N;i++){
+	        if(s.find(A[i])==s.end()){
+	            ans.push_back(A[i]);
+	        }
+	    }
+	    return ans;
+	    
+	} 
+  
+  
+  
+  
