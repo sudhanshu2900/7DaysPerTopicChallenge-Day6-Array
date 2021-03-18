@@ -8,6 +8,10 @@ Explanation: 4 and 10 are present in first array, but not in second array.
 
 SOLUTION:
 
+
+TIME COMP-> O(N+M)          SPACE COMP-> O(M)
+
+
 vector<long long> findMissing(long long A[], long long B[],  
                  int N, int M) 
 	{
@@ -25,6 +29,25 @@ vector<long long> findMissing(long long A[], long long B[],
 	    
 	} 
   
-  
-  
+________________________________________________________________________________
+
+TIME COMP-> O(N+N)         SPACE COMP-> O(M+N)
+
+
+vector<long long> findMissing(long long A[], long long B[],  
+                 int N, int M) 
+	{
+	    vector<bool> res(N+M, false); 
+	    vector<long long> ans;
+	    for(int i=0;i<M;i++){
+	    	res[B[i]]=true;
+	    }
+	    for(int i=0;i<N;i++){
+	    	if(res[A[i]]==false){
+			ans.push_back(A[i]);
+		}
+	    }
+	    return ans;
+	}
+	     
   
